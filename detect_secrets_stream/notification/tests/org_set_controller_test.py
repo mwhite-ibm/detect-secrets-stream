@@ -19,6 +19,9 @@ class TestOrgSetController(TestCase):
         self.admin_config = ConfUtil.load_github_conf()['admin_config']
         self.email_domain = 'test.test'
 
+    def test_admin_config_contains_gh_host(self):
+        assert self.github_host in self.admin_config
+
     def test_get_security_focal_emails_for_repo(self):
         test_repo_slug = 'test-org/test-repo'
         self.org_set_controller._org_mappings = {
